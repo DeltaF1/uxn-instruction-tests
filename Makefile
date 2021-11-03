@@ -1,4 +1,4 @@
-uxnemu = uxnemu
+uxnemu = uxncli
 uxnasm = uxnasm
 
 all: literals arithmetic
@@ -10,4 +10,4 @@ arithmetic:
 	uxnasm arithmetic.tal arithmetic.rom
 
 run: all
-	$(foreach file, $(wildcard ./*.rom), uxnemu $(file) | hexdump -C ;)
+	$(foreach file, $(wildcard ./*.rom), $(uxnemu) $(file) < /dev/null | xxd -p ;)
