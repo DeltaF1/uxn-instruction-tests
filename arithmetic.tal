@@ -1,0 +1,122 @@
+include testheader.tal
+
+|0100
+	( ADD ) LIT "+ OUT
+
+	( Adding zero is a no-op )
+	#0000 #0000 ADD2 OUT2
+	
+	( Overflows )
+	#ffff #0000 ADD2 OUT2
+	#ffff #0001 ADD2 OUT2
+	#0001 #ffff ADD2 OUT2
+	#ffff #ffff ADD2 OUT2
+	#fffe #ffff ADD2 OUT2
+
+	#ff #00 ADD OUT
+	#ff #01 ADD OUT
+	#01 #ff ADD OUT
+	#ff #ff ADD OUT
+	#fe #ff ADD OUT
+
+	( SUB ) LIT "- OUT
+
+	#1337 #ae40 SUB2 OUT2
+	#ae40 #1337 SUB2 OUT2
+
+	#ffff #0000 SUB2 OUT2
+	#ffff #0001 SUB2 OUT2
+	#0001 #ffff SUB2 OUT2
+	#ffff #ffff SUB2 OUT2
+	#fffe #ffff SUB2 OUT2
+
+	#ff #00 SUB OUT
+	#ff #01 SUB OUT
+	#01 #ff SUB OUT
+	#ff #ff SUB OUT
+	#fe #ff SUB OUT
+
+
+	( MUL ) LIT "* OUT
+	#00 #01 MUL OUT
+	#3f #e7 MUL OUT
+	#37 #3f MUL OUT
+	#10 #02 MUL OUT
+	#ff #00 MUL OUT
+	#ff #02 MUL OUT
+
+	( DIV ) LIT "/ OUT
+	( AND ) LIT "& OUT
+	( ORA ) LIT "| OUT
+	( EOR ) LIT "^ OUT
+	#00 #00 EOR OUT
+	#ff #00 EOR OUT
+	#aa #55 EOR OUT
+	#ff #ff EOR OUT
+
+	#ffff #ff00 EOR2 OUT2
+	#aaaa #5555 EOR2 OUT2
+
+( SFT ) LIT "> OUT
+( Right )
+	#ff #00 SFT OUT
+	#ff #01 SFT OUT
+	#ff #07 SFT OUT
+	#ff #08 SFT OUT
+	#ff #09 SFT OUT
+	#ff #0e SFT OUT
+	#ff #0f SFT OUT
+	                    
+	#ffff #00 SFT2 OUT2 
+	#ffff #01 SFT2 OUT2 
+	#ffff #02 SFT2 OUT2 
+	#ffff #07 SFT2 OUT2 
+	#ffff #08 SFT2 OUT2 
+	#ffff #09 SFT2 OUT2 
+	#ffff #0a SFT2 OUT2 
+	#ffff #0e SFT2 OUT2 
+	#ffff #0f SFT2 OUT2 
+	
+	( Left )
+	#ff #10 SFT OUT
+	#ff #70 SFT OUT
+	#ff #80 SFT OUT
+	#ff #90 SFT OUT
+	#ff #e0 SFT OUT
+	#ff #f0 SFT OUT
+	                    
+	#ffff #10 SFT2 OUT2 
+	#ffff #20 SFT2 OUT2 
+	#ffff #70 SFT2 OUT2 
+	#ffff #80 SFT2 OUT2 
+	#ffff #90 SFT2 OUT2 
+	#ffff #a0 SFT2 OUT2 
+	#ffff #e0 SFT2 OUT2 
+	#ffff #f0 SFT2 OUT2 
+	
+	( Both )
+	#ff #12 SFT OUT
+	#ff #77 SFT OUT
+	#ff #11 SFT OUT
+	#ff #3f SFT OUT
+	#ff #ff SFT OUT
+	                    
+	#ffff #11 SFT2 OUT2 
+	#ffff #12 SFT2 OUT2 
+	#ffff #21 SFT2 OUT2 
+	#ffff #7e SFT2 OUT2 
+	#ffff #83 SFT2 OUT2 
+	#ffff #92 SFT2 OUT2 
+	#ffff #2a SFT2 OUT2 
+	#ffff #e3 SFT2 OUT2 
+	
+BRK
+
+@expected "expected
+"2b0000ffff00000000fffefffdff0000fefd2d64f79b09fffffffe000200
+"00fffffffe0200ff2a00d9892000fe2f267c5e00ffff0000ffffff3eff7f
+"0100000000ffff7fff3fff01ff00ff007f003f00030001fe8000000000ff
+"fefffcff80ff00fe00fc00c00080007e80fe000000fffe7ffefffc0180ff
+"00fe0000fcc0008000
+
+include testfooter.tal

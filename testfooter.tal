@@ -1,0 +1,13 @@
+( Stolen from asma )
+@print-byte ( byte -- )
+  #20 .Console/write DEO
+  DUP #04 SFT ,&hex JSR
+      #0f AND ,&hex JMP
+
+  &hex
+  #30 ADD DUP #3a LTH ,&not-alpha JCN
+  #27 ADD
+  &not-alpha
+  .Console/write DEO
+  JMP2r
+

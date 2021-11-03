@@ -1,0 +1,17 @@
+|10 @Console    [ &vector $2 &read     $1 &pad    $5 &write $1 &error  $1 ]
+
+
+( Uncomment whichever output style is appropriate for your emulator )
+
+( Do nothing, leave values on the stack. Handy if you don't have DEO implemented yet but can look at the raw stack )
+( %OUT { } )
+
+( Raw console bytes out )
+%OUT { .Console/write DEO }
+
+( Print to the console as hex chars. )
+( This may be unreliable if your emulator isn't completed since it relies on stack ops and jumps )
+( %OUT { ;print-byte JSR2 } )
+
+%OUTr { STHr OUT }
+%OUT2 { SWP OUT OUT }
