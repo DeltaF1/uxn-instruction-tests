@@ -1,0 +1,53 @@
+include testheader.tal
+|0100 @Init
+	( Conditional jumps )
+	#01 ,&true JCN
+		#dd OUT
+	&true
+	#01 OUT
+
+	#34 ,&true2 JCN
+		#ee OUT
+	&true2
+	#ab OUT
+
+	#00 ,&false JCN
+		#cc OUT
+	&false
+	#bb OUT	
+
+	( Unconditional jumps )
+	#aa OUT
+	,&no-ff JMP
+		#ff OUT
+	&no-ff
+	
+	#13 OUT
+	;&no-37 JMP2
+		#37 OUT
+	&no-37
+	
+	#ab OUT
+	;sub-absolute JSR2
+	#cd OUT
+
+	#01 OUT
+	,sub-relative JSR
+	#23 OUT	
+
+BRK
+
+@sub-relative
+	LIT2 "su OUT2 LIT2 "br OUT2
+JMP2r
+( Should never reach this point )
+LIT2 "er OUT2
+
+@sub-absolute
+	LIT2 "su OUT2 LIT2 "ba OUT2
+JMP2r
+( Should never reach this point )
+LIT2 "er OUT2
+@expected "expected
+"01abccbbaa13ab73756261cd017375627223
+include testfooter.tal
