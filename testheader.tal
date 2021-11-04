@@ -5,6 +5,8 @@
 
 ( Do nothing, leave values on the stack. Handy if you don't have DEO implemented yet but can look at the raw stack )
 ( %OUT { } )
+( %OUTr { } )
+( %OUT2 { } )
 
 ( Raw console bytes out )
 %OUT { .Console/write DEO }
@@ -14,4 +16,4 @@
 ( %OUT { ;print-byte JSR2 } )
 
 %OUTr { STHr OUT }
-%OUT2 { SWP OUT OUT }
+%OUT2 { STH OUT STHr OUT }

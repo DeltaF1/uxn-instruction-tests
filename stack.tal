@@ -1,0 +1,27 @@
+include testheader.tal
+
+|0100
+	( Test STH first since we need it to work for the output commands to work properly )
+	( STH ) LIT "H OUT
+	#ff #01 STH OUT STHr OUT
+	#ffee #aa55 STH2 OUT2 STHr2 OUT2
+
+	( OVR ) LIT "V OUT
+	#03 #04 OVR STH STH OUT STHr OUT STHr OUT
+	#ffff #aaaa #5555 OVR2 STH2 STH2 OUT2 STH2r OUT2 STH2r OUT2
+
+	( POP ) LIT "P OUT
+	POP2 ( Clear #ffff from last section )
+	#ff #aa POP OUT
+	#1337 #aa55 POP2 OUT2
+
+	( NIP ) LIT "N OUT
+	
+
+	( ROT ) LIT "R OUT
+	( SWP ) LIT "S OUT
+	( DUP )	LIT "D OUT
+
+BRK
+
+include testfooter.tal
