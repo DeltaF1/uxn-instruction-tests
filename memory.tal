@@ -1,0 +1,46 @@
+include testheader.tal
+
+|0000
+@var1
+	&x $1 &y $2
+@var2
+	&x $1 &y $2
+
+|0100
+	#45 .var2/x STZ
+	#6789 .var2/y STZ2
+	.var1/x LDZ OUT
+	.var1/y LDZ2 OUT2
+
+	.var2/x LDZ OUT
+	.var2/x LDZ2 OUT2
+	.var2/y LDZ2 OUT2
+
+	;far LDA OUT
+	;far LDA2 OUT2
+
+	#abcd ;far/empty STA2
+	
+	;far/empty LDA OUT
+	;far/empty LDA2 OUT2
+	
+	,near LDR OUT
+	,near LDR2 OUT2
+
+	#1337 ,near/empty STR2
+	,near/empty LDR OUT
+	,near/empty LDR2 OUT2	
+
+
+BRK
+@near 3210 &empty $2
+
+@expected "expected
+
+include testfooter.tal
+
+|fff8
+@far
+	7654
+&empty
+	$2
