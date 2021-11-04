@@ -23,5 +23,6 @@ include testheader.tal
 	( DUP )	LIT "D OUT
 
 BRK
-
+@expected "expected
+"48ff01ffeeaa5556030403aaaa5555aaaa50ff13374e525344
 include testfooter.tal

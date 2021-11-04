@@ -10,7 +10,11 @@ include testheader.tal
 	#12 #34 OUT2
 
 	#ffff OUT2
+
+	LIT "A OUT
+	LIT "! OUT
+	#0d OUT
 BRK
 @expected "expected
-"0001010112341234ffff
+"0001010112341234ffff41210d
 include testfooter.tal
