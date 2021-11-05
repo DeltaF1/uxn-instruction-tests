@@ -16,11 +16,25 @@ include testheader.tal
 	#1337 #aa55 POP2 OUT2
 
 	( NIP ) LIT "N OUT
-	
+	#ab #cd NIP OUT
+	#3456 #789a NIP2 OUT2
 
 	( ROT ) LIT "R OUT
+	#12 #34 #56 ROT ROT ROT STH STH OUT STHr OUT STHr OUT
+	#78 #9a #bc ROT ROT STH STH OUT STHr OUT STHr OUT
+	#de #f0 #12 ROT STH STH OUT STHr OUT STHr OUT
+
+
 	( SWP ) LIT "S OUT
+	( Two swaps does nothing )
+	#abcd SWP SWP OUT2
+	#1337 #4e53 SWP2 SWP2 STH2 OUT2 STH2r OUT2
+
+	#1234 SWP OUT2	
+	#8383 #a55a SWP2 STH2 OUT2 STH2r OUT2
+
 	( DUP )	LIT "D OUT
+	
 
 BRK
 @expected "expected

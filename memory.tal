@@ -36,6 +36,7 @@ BRK
 @near 3210 &empty $2
 
 @expected "expected
+"0000004545676789767654ababcd323210131337
 
 include testfooter.tal
 

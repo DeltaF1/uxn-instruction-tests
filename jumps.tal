@@ -1,5 +1,6 @@
 include testheader.tal
 |0100 @Init
+	( TODO Backwards relative jumps )
 	( Conditional jumps )
 	#01 ,&true JCN
 		#dd OUT
