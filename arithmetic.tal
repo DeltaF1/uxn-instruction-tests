@@ -110,6 +110,7 @@
 	#ffff #2a SFT2 OUT2 
 	#ffff #e3 SFT2 OUT2 
 	
+	CLOSE
 BRK
 
 @expected "expected
