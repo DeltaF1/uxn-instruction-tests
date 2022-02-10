@@ -1,7 +1,7 @@
 uxnemu = uxncli
 uxnasm = uxnasm
 
-all: literals arithmetic stack jumps
+all: literals arithmetic stack jumps memory
 
 literals:
 	uxnasm literals.tal literals.rom
@@ -14,6 +14,9 @@ stack:
 
 jumps:
 	uxnasm jumps.tal jumps.rom
+
+memory:
+	uxnasm memory.tal memory.rom
 
 run: all
 	$(foreach file, $(wildcard ./*.rom), $(uxnemu) $(file) < /dev/null | xxd -p ;)
