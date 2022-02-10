@@ -1,4 +1,4 @@
-include testheader.tal
+~testheader.tal
 
 |0000
 @var1
@@ -38,7 +38,7 @@ BRK
 @expected "expected
 "0000004545676789767654ababcd323210131337
 
-include testfooter.tal
+~testfooter.tal
 
 |fff8
 @far

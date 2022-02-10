@@ -1,4 +1,4 @@
-include testheader.tal
+~testheader.tal
 
 |0100
 	( Test STH first since we need it to work for the output commands to work properly )
@@ -40,4 +40,4 @@ BRK
 @expected "expected
 "48ff01ffeeaa5556030403aaaa5555aaaa50ff13374ecd789a52123456bc
 "789af012de53abcd13374e533412a55a838344
-include testfooter.tal
+~testfooter.tal

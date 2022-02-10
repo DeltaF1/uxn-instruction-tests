@@ -1,4 +1,4 @@
-include testheader.tal
+~testheader.tal
 |0100 @Init
 	( TODO Backwards relative jumps )
 	( Conditional jumps )
@@ -51,4 +51,4 @@ JMP2r
 LIT2 "er OUT2
 @expected "expected
 "01abccbbaa13ab73756261cd017375627223
-include testfooter.tal
+~testfooter.tal

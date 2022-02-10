@@ -1,4 +1,4 @@
-include testheader.tal
+~testheader.tal
 
 |0100
 	#00 OUT
@@ -17,4 +17,4 @@ include testheader.tal
 BRK
 @expected "expected
 "0001010112341234ffff41210d
-include testfooter.tal
+~testfooter.tal

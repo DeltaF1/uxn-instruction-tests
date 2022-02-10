@@ -1,4 +1,4 @@
-include testheader.tal
+~testheader.tal
 
 |0100
 	( ADD ) LIT "+ OUT
@@ -119,4 +119,4 @@ BRK
 "fefffcff80ff00fe00fc00c00080007e80fe000000fffe7ffefffc0180ff
 "00fe0000fcc0008000
 
-include testfooter.tal
+~testfooter.tal
