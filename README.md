@@ -1,3 +1,6 @@
+# ! This repo is very out of date and I have not kept it up to date with any changes to the spec since February 2022 !
+I have lost interest in this project and am unlikely to update it any time soon. The instruction set itself has changed and I believe there have been lots of changes to various devices in the interim. Take everything here with a grain of salt.
+
 # Test suite for the Uxn cpu instruction set
 
 WIP test programs to help catch implementation errors when porting the Uxn virtual CPU spec. Each program contains the expected program output (as executed on the reference C implementation of Uxn/Varvara) as a hexdump string so it's easily readable in the compiled .rom files as well.
